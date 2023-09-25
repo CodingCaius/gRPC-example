@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+// 指定默认包名
+package proto;
+
+// 定义go生成后的包名
+option go_package = "./;hello";
+
+
+// 定义入参
+message Request {
+  string name =1;
+}
+// 定义返回
+message Response {
+  string result = 1;
+}
+
+// 定义接口
+service UserService {
+  // 定义函数
+  rpc SayHi(Request) returns (Response);
+}
